@@ -70,7 +70,7 @@ on your machine and forwards requests to the hosted server.
   "mcpServers": {
     "chatrail": {
       "command": "npx",
-      "args": ["-y", "chatrail-mcp"],
+      "args": ["-y", "github:chatrail/chatrail_mcp"],
       "env": { "CHATRAIL_API_KEY": "cr_live_..." }
     }
   }
