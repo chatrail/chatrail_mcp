@@ -1,5 +1,8 @@
 # ChatRail MCP server
 
+[![npm version](https://img.shields.io/npm/v/chatrail-mcp)](https://www.npmjs.com/package/chatrail-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/chatrail-mcp)](https://www.npmjs.com/package/chatrail-mcp)
+
 Operate a [ChatRail](https://www.chatrail.dev) workspace from Claude, Cursor, VS Code and any other
 [Model Context Protocol](https://modelcontextprotocol.io) client. Check the health of your WhatsApp
 connections, look up groups, trace why a message failed, manage scheduled messages and replay
@@ -70,11 +73,19 @@ on your machine and forwards requests to the hosted server.
   "mcpServers": {
     "chatrail": {
       "command": "npx",
-      "args": ["-y", "github:chatrail/chatrail_mcp"],
+      "args": ["-y", "chatrail-mcp"],
       "env": { "CHATRAIL_API_KEY": "cr_live_..." }
     }
   }
 }
+```
+
+The package is published on npm as `chatrail-mcp`, so `npx` fetches it from the
+registry. If you need a version that is not published yet, run it straight from
+the repository instead:
+
+```json
+"args": ["-y", "github:chatrail/chatrail_mcp"]
 ```
 
 **Docker**
