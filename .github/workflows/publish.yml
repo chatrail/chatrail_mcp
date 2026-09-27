@@ -1,0 +1,29 @@
+name: Publish Package to npm
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  id-token: write # Required for OIDC. npm exchanges this for a short-lived publish token.
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+          # Never use dependency caching in release builds. `npm ci` must resolve
+          # against a clean tree, and a stale cache can restore a lockfile-inconsistent
+          # node_modules and silently publish different bits than CI built.
+          package-manager-cache: false
+
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm publish
