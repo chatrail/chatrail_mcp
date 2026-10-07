@@ -136,12 +136,35 @@ CHATRAIL_API_KEY=cr_test_... node dist/index.js
 `tools.json` is the tool catalog served when no API key is configured. It is exported from the
 hosted server and should be refreshed when the hosted tools change.
 
+## Agent skill
+
+ChatRail publishes a skill file that tells an agent when to use ChatRail, what a person has to set
+up, how to send and receive, and the rules for sending. This MCP server operates a workspace and
+cannot send messages, so the skill points to the REST API for sending.
+
+Give your agent this line:
+
+```
+Read https://www.chatrail.dev/SKILL.md and follow it to set up ChatRail.
+```
+
+Or install it yourself in Claude Code:
+
+```bash
+mkdir -p ~/.claude/skills/chatrail
+curl -fsSL https://www.chatrail.dev/SKILL.md -o ~/.claude/skills/chatrail/SKILL.md
+```
+
+The canonical file is https://www.chatrail.dev/SKILL.md. A copy lives in this repository at
+`skills/chatrail/SKILL.md` so tools that install skills from GitHub can find it.
+
 ## Links
 
 - Website: <https://www.chatrail.dev>
 - MCP docs: <https://www.chatrail.dev/mcp>
 - API reference: <https://www.chatrail.dev/api-reference>
 - Authentication: <https://www.chatrail.dev/auth.md>
+- Agent skill: <https://www.chatrail.dev/SKILL.md>
 
 ## License
 
