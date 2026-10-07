@@ -148,7 +148,13 @@ Give your agent this line:
 Read https://www.chatrail.dev/SKILL.md and follow it to set up ChatRail.
 ```
 
-Or install it yourself in Claude Code:
+Or install it with the skills CLI, which installs agent skills from a GitHub repository:
+
+```bash
+npx skills add chatrail/chatrail_mcp
+```
+
+Or copy it into Claude Code by hand:
 
 ```bash
 mkdir -p ~/.claude/skills/chatrail
